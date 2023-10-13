@@ -15,7 +15,6 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     throw error;
@@ -34,7 +33,7 @@ const usersSlice = createSlice({
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.users = action.payload;
+        state.users = action.payload.results;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;
