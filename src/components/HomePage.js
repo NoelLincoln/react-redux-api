@@ -6,8 +6,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
 
-  console.log('fetched users', users[0]);
-
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
@@ -17,12 +15,12 @@ const HomePage = () => {
       <h1>User Manager</h1>
       <ul>
         {users.map((user, index) => (
-        <li key={index}>
-          <h4>{user.name.title}</h4>
-          <p>First Name: {user.name.first}</p>
-          <p>Last Name: {user.name.last}</p>
-        </li>
-      ))}
+          <li key={index}>
+            <h4>{user.name.title}</h4>
+            <p>First Name: {user.name.first}</p>
+            <p>Last Name: {user.name.last}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );
